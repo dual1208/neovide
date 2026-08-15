@@ -61,7 +61,7 @@ impl Default for WindowSettings {
         Self {
             confirm_quit: true,
             cursor_hack: true,
-            fullscreen: false,
+            fullscreen: true,
             has_mouse_grid_detection: false,
             hide_mouse_when_typing: false,
             input_ime: true,
@@ -103,6 +103,16 @@ impl Default for WindowSettings {
             observed_columns: None,
             observed_lines: None,
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::WindowSettings;
+
+    #[test]
+    fn starts_fullscreen_by_default() {
+        assert!(WindowSettings::default().fullscreen);
     }
 }
 
